@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Memories Vault</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">📸</span>
+                <span class="logo-text">Memories</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" id="nav-home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" id="nav-gallery">Hình Ảnh</a>
+                    <ul class="dropdown-menu">
+                        <li class="nested-dropdown">
+                            <a href="#">Năm 2024</a>
+                            <ul class="nested-menu">
+                                <li><a href="#" onclick="filterByMonth(2024, 1)">Tháng 1</a></li>
+                                <li><a href="#" onclick="filterByMonth(2024, 2)">Tháng 2</a></li>
+                                <li><a href="#" onclick="filterByMonth(2024, 3)">Tháng 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nested-dropdown">
+                            <a href="#">Năm 2023</a>
+                            <ul class="nested-menu">
+                                <li><a href="#" onclick="filterByMonth(2023, 10)">Tháng 10</a></li>
+                                <li><a href="#" onclick="filterByMonth(2023, 11)">Tháng 11</a></li>
+                                <li><a href="#" onclick="filterByMonth(2023, 12)">Tháng 12</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#" id="nav-login">Đăng Nhập</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home-section" class="section active">
+            <div class="hero-container">
+                <div class="intro-content">
+                    <h1>Lưu Giữ Khoảnh Khắc <span class="highlight">Mãi Mãi</span></h1>
+                    <p>Chào mừng bạn đến với kho lưu trữ hình ảnh cá nhân. Nơi những kỷ niệm đẹp nhất được bảo tồn và trân trọng.</p>
+                    <button class="btn-primary" onclick="showSection('images')">Khám Phá Ngay</button>
+                </div>
+                <div class="login-container" id="login-form-home">
+                    <div class="login-card">
+                        <h2>Đăng Nhập</h2>
+                        <p>Vui lòng đăng nhập để truy cập kho ảnh</p>
+                        <form id="auth-form">
+                            <div class="form-group">
+                                <label for="username">Tài khoản</label>
+                                <input type="text" id="username" placeholder="Nhập tài khoản" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mật khẩu</label>
+                                <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+                            </div>
+                            <button type="submit" class="btn-login">Đăng nhập</button>
+                        </form>
+                        <p id="login-error" class="error-msg"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Images Section -->
+        <section id="images-section" class="section">
+            <div class="gallery-header">
+                <h2>Kho Ảnh Kỷ Niệm</h2>
+                <div class="filters">
+                    <input type="date" id="date-filter">
+                    <button class="btn-secondary" onclick="resetFilters()">Tất cả ảnh</button>
+                </div>
+            </div>
+            
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- Images will be injected here -->
+            </div>
+
+            <div class="pagination">
+                <button id="prev-page" class="btn-pagination">Trước</button>
+                <div id="page-numbers"></div>
+                <button id="next-page" class="btn-pagination">Sau</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Digital Memories Vault. Design with ❤️</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
